@@ -1,16 +1,17 @@
 const {Router} = require('express');
 const router = Router();
 
-const { getTexts,addText,getTextById,updateText,addUser,updateUser,getUserById,getUsers,addResult,getUserResults,getUserResultById,updateResult } = require('../controllers/apiController')
+const { getRandomText,addText,getTextById,updateText,addUser,updateUser,getUserById,getUsers,addResult,getUserResults,getUserResultById,updateResult,login } = require('../controllers/apiController')
+router.post('/register',addUser);
+router.post('/login',login)
 
-router.get('/texts', getTexts);
+router.get('/texts', getRandomText);
 router.get('/texts/:id',getTextById);
 router.post('/texts',addText);
 router.put('/texts/:id',updateText);
 
 router.get('/users', getUsers);
 router.get('/users/:id',getUserById);
-router.post('/users',addUser);
 router.put('/users/:id',updateUser);
 
 router.post('/users/:id/results',addResult)
